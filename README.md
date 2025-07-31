@@ -145,5 +145,70 @@ El gatekeeper actúa como el primer filtro de acceso en la red descentralizada. 
 - Capacidad de actualizar reglas de validación y balanceo mediante consenso distribuido.
 
 
+# Lobby Descentralizado - Especificaciones Técnicas
 
+## Función principal  
+El **lobby descentralizado** es el área de espera donde las solicitudes entrantes permanecen hasta ser procesadas.  
+Su objetivo es organizar, clasificar y priorizar solicitudes de manera segura y sin puntos únicos de fallo.  
+
+---
+
+## Responsabilidades  
+1. **Recepción de solicitudes:** recibe las fichas/tokens emitidas por el Gatekeeper.  
+2. **Clasificación:** identifica el tipo de servicio asociado a la solicitud (dinero electrónico, identidad, servicios, etc.).  
+3. **Priorización:** ordena solicitudes en base a prioridad definida por el Gatekeeper y por reglas internas de carga.  
+4. **Despacho:** envía las solicitudes a los nodos de la blockchain de destino.  
+
+---
+
+## Estructura técnica  
+
+### **Colas de espera segmentadas**
+- Cada lobby mantiene múltiples colas, una por tipo de servicio.  
+- Cada cola se ordena por:  
+  - Prioridad de ficha (alta, media, baja).  
+  - Timestamp de ingreso.  
+
+### **Capacidad máxima**  
+- Cada lobby tiene un límite de solicitudes concurrentes.  
+- Al alcanzar capacidad máxima:  
+  - Se notifica al Gatekeeper.  
+  - Se redirigen nuevas solicitudes a otros lobbies con espacio.  
+
+### **Distribución hacia blockchain de destino**  
+- Una vez procesadas, las solicitudes se enrután a:  
+  - Blockchain de dinero electrónico.  
+  - Blockchain de identidad.  
+  - Blockchain de servicios u otros.  
+- El envío es multipath: las solicitudes se dividen en rutas seguras, eliminando puntos de congestión.
+
+---
+
+## Seguridad  
+
+1. **Autenticación de fichas:**  
+   - Cada solicitud debe presentar una ficha válida emitida por un Gatekeeper.  
+   - Fichas expiradas o inválidas son rechazadas automáticamente.  
+
+2. **Monitoreo autónomo:**  
+   - Si el lobby detecta un ataque o sobrecarga, cierra temporalmente el acceso y activa la migración de solicitudes a otros lobbies.  
+
+3. **Auditoría:**  
+   - Todo el flujo (entrada, clasificación, despacho) queda registrado en la blockchain.  
+
+---
+
+## Interfaces  
+
+- **Entrada:** API para recepción de fichas/tokens emitidas por Gatekeepers.  
+- **Salida:** conexión RPC o peer-to-peer hacia nodos blockchain de destino.  
+- **Notificación:** comunica a los Gatekeepers el estado de capacidad (normal, lleno, en fallo).  
+
+---
+
+## Consideraciones de implementación  
+
+- Debe ser **completamente distribuido**, permitiendo múltiples lobbies activos en paralelo.  
+- Capacidad de **migrar solicitudes activas** hacia otros lobbies si ocurre una falla.  
+- Implementar algoritmos de **balanceo inteligente** para mantener la fluidez.
     
