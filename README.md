@@ -669,3 +669,171 @@ Nota Importante
 
 La privacidad no es impunidad. La BDI mitiga y actúa sobre actividades ilícitas mediante mecanismos descentralizados y legalmente auditables, sin imponer vigilancia masiva ni comprometer la soberanía de sus usuarios.
 
+
+README – Estructura de Pagos y Uso de la Moneda Nativa en la Banca Descentralizada Inteligente
+
+1. Contexto General
+
+La Banca Descentralizada Inteligente (BDI) es un sistema financiero híbrido que combina infraestructura blockchain con nodos físicos (oficinas) distribuidos en ciudades estratégicas a nivel mundial. Su objetivo es ofrecer servicios financieros seguros, transparentes y descentralizados, manteniendo compatibilidad con monedas fiat y criptomonedas consolidadas como Bitcoin.
+
+La moneda nativa es el activo central del ecosistema y es utilizada como base para registrar todas las operaciones, incluso cuando el pago final se realice en otra moneda mediante conversión automática.
+
+
+---
+
+2. Principios de la Moneda Nativa
+
+1. Toda transacción dentro del sistema BDI se origina y liquida en la moneda nativa.
+
+
+2. Cuando el comercio o receptor requiere fiat o Bitcoin, el sistema realiza la conversión automática sin que la trazabilidad de la moneda nativa se pierda.
+
+
+3. El recibo final siempre muestra:
+
+Monto en moneda nativa.
+
+Moneda de destino (fiat o Bitcoin) y tasa de conversión utilizada.
+
+Modalidad de pago empleada (Pago por Usted o Pague Usted).
+
+
+
+
+
+---
+
+3. Modalidades de Pago
+
+A. Pago por Usted
+
+El usuario solicita a la BDI que ejecute un pago en nombre suyo.
+
+La banca realiza el pago al receptor en la moneda solicitada (fiat/BTC) utilizando sus propias pasarelas de liquidez.
+
+El saldo equivalente se descuenta del usuario en moneda nativa.
+
+Recibo generado:
+
+Modalidad: Pago por Usted
+Monto moneda nativa: X unidades
+Conversión: X unidades → $USD/BTC
+Fecha y tasa de cambio
+
+Ventaja: el usuario delega totalmente el proceso de pago al sistema.
+
+
+
+---
+
+B. Pague Usted
+
+El usuario paga directamente al receptor desde su cuenta BDI.
+
+El sistema realiza conversión instantánea a la moneda aceptada por el receptor.
+
+El recibo deja constancia:
+
+Modalidad: Pague Usted
+Monto moneda nativa: X unidades
+Conversión: X unidades → $USD/BTC
+Fecha y tasa de cambio
+
+
+
+---
+
+4. Nodos Físicos (Oficinas)
+
+Cada oficina actúa como un nodo de conversión y liquidez, ofreciendo:
+
+1. Conversión directa entre moneda nativa, fiat y Bitcoin.
+
+
+2. Entrada y salida de capitales para usuarios locales.
+
+
+3. Custodia de liquidez física y digital.
+
+
+
+Las oficinas refuerzan la confianza en el sistema y facilitan la adopción en mercados regulados.
+
+
+
+---
+
+5. Requerimientos Técnicos
+
+1. Liquidez: cada nodo debe mantener reservas suficientes de fiat y Bitcoin para ejecutar conversiones inmediatas.
+
+
+2. Oráculos de precios: sistema seguro y descentralizado para obtener tasas de conversión en tiempo real.
+
+
+3. Estandarización de recibos: cada transacción genera un registro on-chain y off-chain donde se detalla:
+
+Origen en moneda nativa.
+
+Modalidad de pago.
+
+Moneda de destino y tipo de cambio.
+
+
+
+4. Cumplimiento regulatorio: los nodos deben cumplir con normativas KYC/AML según jurisdicción.
+
+
+
+
+---
+
+6. Incentivos de la Moneda Nativa
+
+Para evitar que la moneda nativa sea percibida únicamente como un “token de paso”, se establecen incentivos:
+
+Tarifas reducidas al mantener saldo en moneda nativa.
+
+Acceso preferencial a servicios premium de la BDI.
+
+Rendimientos por participación en pools de liquidez.
+
+Beneficios exclusivos para clientes que operen predominantemente con la moneda nativa.
+
+
+
+---
+
+7. Flujo General de Pago
+
+1. Usuario inicia el pago en modalidad Pago por Usted o Pague Usted.
+
+
+2. El sistema descuenta el monto en moneda nativa de la cuenta del usuario.
+
+
+3. Conversión automática a la moneda final solicitada (fiat o BTC).
+
+
+4. Receptor recibe el pago en su moneda preferida.
+
+
+5. Recibo generado, registrando el uso de la moneda nativa y la conversión.
+
+
+
+
+---
+
+8. Objetivo Estratégico
+
+El modelo asegura que la moneda nativa sea el motor operativo y contable del sistema, sin fricción para comercios y usuarios. La trazabilidad de cada operación se mantiene, fortaleciendo la gobernanza y la transparencia de la Banca Descentralizada Inteligente.
+
+
+---
+
+Licencia
+
+Este sistema es propiedad intelectual de Banca Descentralizada Inteligente. Su implementación parcial o total requiere autorización expresa de la organización.
+
+
