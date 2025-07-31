@@ -212,3 +212,299 @@ Su objetivo es organizar, clasificar y priorizar solicitudes de manera segura y 
 - Capacidad de **migrar solicitudes activas** hacia otros lobbies si ocurre una falla.  
 - Implementar algoritmos de **balanceo inteligente** para mantener la fluidez.
     
+
+# Ficha / Token de Acceso - Especificaciones Técnicas
+
+## Función principal  
+La **ficha/token de acceso** es el credencial temporal emitido por el Gatekeeper para autorizar el ingreso al Lobby descentralizado.  
+Define el tipo de solicitud, la prioridad y el tiempo de vida de cada transacción.
+
+---
+
+## Características principales  
+
+1. **Temporalidad:**  
+   - Cada token tiene un tiempo de vida (TTL) definido.  
+   - Si expira antes de llegar al destino, se invalida automáticamente.  
+
+2. **No transferible:**  
+   - Puede implementarse como **Soulbound Token (SBT)** o **NFT volátil**, asegurando que el token esté ligado al solicitante y no pueda ser transferido.  
+
+3. **Metadatos criptográficos:**  
+   - Tipo de servicio: dinero electrónico, identidad, servicios, etc.  
+   - Prioridad asignada (alta, media, baja).  
+   - Identificador único de la solicitud.  
+   - Timestamp de emisión y expiración.  
+   - Hash del Gatekeeper emisor.  
+
+4. **Firmado criptográficamente:**  
+   - La emisión y validación de cada token debe estar respaldada por firmas digitales verificables en la blockchain.  
+
+---
+
+## Flujo de vida del token  
+
+1. **Emisión:**  
+   - Gatekeeper valida identidad del solicitante y genera el token.  
+   - Se registra la emisión en la blockchain para auditoría.  
+
+2. **Uso:**  
+   - El solicitante presenta el token al Lobby descentralizado.  
+   - El lobby verifica validez, metadatos y firma criptográfica.  
+
+3. **Expiración o consumo:**  
+   - Una vez la solicitud es procesada, el token se marca como usado.  
+   - Si no es consumido antes del TTL, el lobby lo invalida automáticamente.  
+
+---
+
+## Seguridad  
+
+- **Resistencia a falsificación:**  
+  - Uso de claves asimétricas (ECDSA o Ed25519).  
+  - Validación descentralizada en múltiples nodos.  
+
+- **Auditoría:**  
+  - Emisión y consumo del token quedan registrados en la blockchain.  
+
+- **Protección ante ataques de replay:**  
+  - Cada token tiene un nonce único que impide ser reutilizado.  
+
+---
+
+## Interfaces  
+
+- **Emisión:** API de Gatekeeper para generar el token.  
+- **Validación:** API de Lobby para verificar validez y metadatos.  
+- **Revocación:** API descentralizada para anular tokens en caso de ataque o error.  
+
+---
+
+## Consideraciones de implementación  
+
+- Implementar en estándares existentes (ej. ERC-721 modificado o ERC-1155 con lógica Soulbound).  
+- Usar formatos ligeros para reducir latencia (ej. JSON Web Tokens + firma on-chain).
+
+  # Ficha / Token de Acceso - Especificaciones Técnicas
+
+## Función principal  
+La **ficha/token de acceso** es el credencial temporal emitido por el Gatekeeper para autorizar el ingreso al Lobby descentralizado.  
+Define el tipo de solicitud, la prioridad y el tiempo de vida de cada transacción.
+
+---
+
+## Características principales  
+
+1. **Temporalidad:**  
+   - Cada token tiene un tiempo de vida (TTL) definido.  
+   - Si expira antes de llegar al destino, se invalida automáticamente.  
+
+2. **No transferible:**  
+   - Puede implementarse como **Soulbound Token (SBT)** o **NFT volátil**, asegurando que el token esté ligado al solicitante y no pueda ser transferido.  
+
+3. **Metadatos criptográficos:**  
+   - Tipo de servicio: dinero electrónico, identidad, servicios, etc.  
+   - Prioridad asignada (alta, media, baja).  
+   - Identificador único de la solicitud.  
+   - Timestamp de emisión y expiración.  
+   - Hash del Gatekeeper emisor.  
+
+4. **Firmado criptográficamente:**  
+   - La emisión y validación de cada token debe estar respaldada por firmas digitales verificables en la blockchain.  
+
+---
+
+## Flujo de vida del token  
+
+1. **Emisión:**  
+   - Gatekeeper valida identidad del solicitante y genera el token.  
+   - Se registra la emisión en la blockchain para auditoría.  
+
+2. **Uso:**  
+   - El solicitante presenta el token al Lobby descentralizado.  
+   - El lobby verifica validez, metadatos y firma criptográfica.  
+
+3. **Expiración o consumo:**  
+   - Una vez la solicitud es procesada, el token se marca como usado.  
+   - Si no es consumido antes del TTL, el lobby lo invalida automáticamente.  
+
+---
+
+## Seguridad  
+
+- **Resistencia a falsificación:**  
+  - Uso de claves asimétricas (ECDSA o Ed25519).  
+  - Validación descentralizada en múltiples nodos.  
+
+- **Auditoría:**  
+  - Emisión y consumo del token quedan registrados en la blockchain.  
+
+- **Protección ante ataques de replay:**  
+  - Cada token tiene un nonce único que impide ser reutilizado.  
+
+---
+
+## Interfaces  
+
+- **Emisión:** API de Gatekeeper para generar el token.  
+- **Validación:** API de Lobby para verificar validez y metadatos.  
+- **Revocación:** API descentralizada para anular tokens en caso de ataque o error.  
+
+---
+
+## Consideraciones de implementación  
+
+- Implementar en estándares existentes (ej. ERC-721 modificado o ERC-1155 con lógica Soulbound).  
+- Usar formatos ligeros para reducir latencia (ej. JSON Web Tokens + firma on-chain).
+
+  # Ficha / Token de Acceso - Especificaciones Técnicas
+
+## Función principal  
+La **ficha/token de acceso** es el credencial temporal emitido por el Gatekeeper para autorizar el ingreso al Lobby descentralizado.  
+Define el tipo de solicitud, la prioridad y el tiempo de vida de cada transacción.
+
+---
+
+## Características principales  
+
+1. **Temporalidad:**  
+   - Cada token tiene un tiempo de vida (TTL) definido.  
+   - Si expira antes de llegar al destino, se invalida automáticamente.  
+
+2. **No transferible:**  
+   - Puede implementarse como **Soulbound Token (SBT)** o **NFT volátil**, asegurando que el token esté ligado al solicitante y no pueda ser transferido.  
+
+3. **Metadatos criptográficos:**  
+   - Tipo de servicio: dinero electrónico, identidad, servicios, etc.  
+   - Prioridad asignada (alta, media, baja).  
+   - Identificador único de la solicitud.  
+   - Timestamp de emisión y expiración.  
+   - Hash del Gatekeeper emisor.  
+
+4. **Firmado criptográficamente:**  
+   - La emisión y validación de cada token debe estar respaldada por firmas digitales verificables en la blockchain.  
+
+---
+
+## Flujo de vida del token  
+
+1. **Emisión:**  
+   - Gatekeeper valida identidad del solicitante y genera el token.  
+   - Se registra la emisión en la blockchain para auditoría.  
+
+2. **Uso:**  
+   - El solicitante presenta el token al Lobby descentralizado.  
+   - El lobby verifica validez, metadatos y firma criptográfica.  
+
+3. **Expiración o consumo:**  
+   - Una vez la solicitud es procesada, el token se marca como usado.  
+   - Si no es consumido antes del TTL, el lobby lo invalida automáticamente.  
+
+---
+
+## Seguridad  
+
+- **Resistencia a falsificación:**  
+  - Uso de claves asimétricas (ECDSA o Ed25519).  
+  - Validación descentralizada en múltiples nodos.  
+
+- **Auditoría:**  
+  - Emisión y consumo del token quedan registrados en la blockchain.  
+
+- **Protección ante ataques de replay:**  
+  - Cada token tiene un nonce único que impide ser reutilizado.  
+
+---
+
+## Interfaces  
+
+- **Emisión:** API de Gatekeeper para generar el token.  
+- **Validación:** API de Lobby para verificar validez y metadatos.  
+- **Revocación:** API descentralizada para anular tokens en caso de ataque o error.  
+
+---
+
+## Consideraciones de implementación  
+
+- Implementar en estándares existentes (ej. ERC-721 modificado o ERC-1155 con lógica Soulbound).  
+- Usar formatos ligeros para reducir latencia (ej. JSON Web Tokens + firma on-chain).
+
+  # Algoritmo de Balanceo de Carga Descentralizado - Especificaciones Técnicas
+
+## Función principal  
+El algoritmo de **balanceo de carga descentralizado** distribuye las solicitudes entrantes hacia los diferentes lobbies disponibles, garantizando:  
+- Fluidez en la red.  
+- Ausencia de cuellos de botella.  
+- Redirección automática si un lobby falla o se llena.  
+
+---
+
+## Objetivos clave  
+
+1. **Distribución equitativa:** evitar saturar un lobby mientras otros están libres.  
+2. **Resiliencia:** si un lobby se cae o sufre ataque, las solicitudes activas se migran a otros lobbies.  
+3. **Prioridad:** asignar lobbies según prioridad y tipo de servicio solicitado.  
+4. **Autonomía:** no depende de un nodo central, se ejecuta en todos los Gatekeepers.  
+
+---
+
+## Estrategia de balanceo  
+
+### **1. Métricas en tiempo real**
+Cada Gatekeeper recibe información actualizada de los lobbies:  
+- Número de solicitudes activas.  
+- Estado (normal, lleno, en fallo).  
+- Latencia promedio de respuesta.  
+- Tipo de servicios habilitados.  
+
+### **2. Algoritmo distribuido**
+- Cada Gatekeeper mantiene una tabla descentralizada de lobbies usando un DHT (Distributed Hash Table).  
+- La decisión de a qué lobby enviar cada solicitud se toma localmente en base a las métricas.  
+- Si múltiples Gatekeepers asignan a un mismo lobby, se recalcula balanceo en tiempo real.  
+
+### **3. Lógica de selección**
+1. Filtrar lobbies disponibles para el tipo de servicio solicitado.  
+2. Evaluar métricas:  
+   - (Peso 50%) Capacidad disponible.  
+   - (Peso 30%) Latencia.  
+   - (Peso 20%) Prioridad de la solicitud.  
+3. Seleccionar el lobby con mejor puntaje.  
+4. Emitir ficha/token con el lobby asignado.  
+
+---
+
+## Fallos y migración  
+
+1. **Lobby lleno:**  
+   - Se rechazan nuevas solicitudes y se notifica al Gatekeeper.  
+   - Gatekeeper emite nueva ficha/token con lobby alternativo.  
+
+2. **Lobby caído:**  
+   - Gatekeeper revoca fichas activas de ese lobby.  
+   - Solicitudes activas se migran a otro lobby con espacio.  
+
+---
+
+## Seguridad  
+
+- **Validación descentralizada:** ningún Gatekeeper puede manipular el algoritmo unilateralmente.  
+- **Auditoría:** decisiones de balanceo quedan registradas en blockchain (quién asignó a qué lobby).  
+- **Protección Sybil:** reputación mínima de lobbies y Gatekeepers para evitar que nodos falsos entren al balanceo.  
+
+---
+
+## Interfaces  
+
+- **Estado de lobby:** cada lobby expone métricas (carga, latencia, capacidad) vía API ligera.  
+- **Registro en DHT:** los Gatekeepers mantienen una tabla compartida de lobbies activos.  
+- **Notificación de eventos:** lobbies envían alertas en caso de sobrecarga o fallo.  
+
+---
+
+## Consideraciones de implementación  
+
+- Compatible con redes P2P y entornos blockchain (usando gossip protocol para compartir métricas).  
+- Capaz de autoajustar pesos (capacidad/latencia/prioridad) según evolución de la red.  
+- Tolerancia a fallos y ataques DDoS mediante redirección y limitación de tokens por lobby.
+
+  
