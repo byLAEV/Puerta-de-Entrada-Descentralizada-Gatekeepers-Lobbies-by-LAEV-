@@ -90,3 +90,60 @@ El diseño debe mantenerse **descentralizado y sin puntos únicos de control**.
 
 
 ---
+1. Diagrama base en Mermaid para arquitectura general
+
+
+flowchart TD
+    Usuario --> Gatekeeper
+    Gatekeeper -->|Asigna ficha/token| Lobby1[Lobby descentralizado]
+    Gatekeeper -->|Asigna ficha/token| Lobby2[Lobby descentralizado]
+    Lobby1 --> BlockchainA[Blockchain de dinero electrónico]
+    Lobby2 --> BlockchainB[Blockchain de servicios]
+
+    subgraph Lobby Lleno
+        Lobby1 -- Lobby lleno --> Gatekeeper
+        Gatekeeper -- Redirige --> Lobby2
+    end
+
+2. Documento SPECS para Gatekeeper (gatekeeper.md)
+
+# Gatekeeper - Especificaciones Técnicas
+
+## Función principal  
+El gatekeeper actúa como el primer filtro de acceso en la red descentralizada. Su función es:  
+
+- Validar la identidad criptográfica del usuario mediante firmas digitales y claves públicas.  
+- Evaluar la reputación y estado del nodo solicitante.  
+- Asignar una ficha/token temporal que representa el permiso para ingresar al lobby.  
+- Determinar a qué lobby se debe dirigir la solicitud, basado en:  
+  - Tipo de servicio requerido (dinero electrónico, identidad, servicios).  
+  - Estado de carga actual de los lobbies disponibles.  
+  - Latencia o proximidad geográfica para optimizar tiempos.
+
+## Ficha/Token de acceso  
+- Debe ser un token criptográfico (preferiblemente un soulbound token o NFT volátil).  
+- Contiene metadatos:  
+  - ID del usuario (anonimizado).  
+  - Tipo de servicio solicitado.  
+  - Prioridad asignada.  
+  - Timestamp de emisión y expiración.  
+
+## Protocolo de Balanceo  
+- Si el lobby asignado está lleno, el gatekeeper redirige la solicitud a otro lobby con capacidad disponible.  
+- En caso de falla o ataque a un lobby, el gatekeeper revoca tokens asignados a ese lobby y reasigna nuevas fichas para otros lobbies.  
+
+## Seguridad  
+- Las validaciones se realizan en nodos distribuidos para evitar puntos únicos de fallo.  
+- La emisión y revocación de fichas queda registrada en la blockchain para auditoría y transparencia.  
+
+## Interfaces  
+- API REST o RPC para validación y emisión de tokens.  
+- Integración con sistemas de reputación y monitoreo de nodos.  
+
+## Consideraciones de implementación  
+- Debe soportar alta concurrencia y baja latencia en validación.  
+- Capacidad de actualizar reglas de validación y balanceo mediante consenso distribuido.
+
+
+
+    
